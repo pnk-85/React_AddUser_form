@@ -4,10 +4,10 @@ import UserInputList from './Components/UserItem/UserInputList';
 
 function App() {
 
-  const [usersInputList, setUsersInputList] = useState([]);
+  const [userInputList, setUserInputList] = useState([]);
 
   const userInputHandler = (uName,uAge) => {
-    setUsersInputList((prevUsrList) => {
+    setUserInputList((prevUsrList) => {
       return[...prevUsrList, {name: uName, age: uAge, id : Math.random().toString()}]
     })
   }
@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
       <UserInput onAddUser={userInputHandler} />
-      <UserInputList users={[usersInputList]} />
+      <UserInputList users={userInputList} />
     </div>
   );
 }
