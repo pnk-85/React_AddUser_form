@@ -2,21 +2,22 @@ import React,{ useState } from 'react';
 import UserInput from './Components/UserItem/UserInput';
 import UserInputList from './Components/UserItem/UserInputList';
 
+
 function App() {
 
   const [userInputList, setUserInputList] = useState([]);
 
-  const userInputHandler = (uName,uAge) => {
+  const userInputHandler = (uName,uAge,uClg) => {
     setUserInputList((prevUsrList) => {
-      return[...prevUsrList, {name: uName, age: uAge, id : Math.random().toString()}]
+      return[...prevUsrList, {name: uName, age: uAge, clg:uClg, id : Math.random().toString()}]
     })
   }
 
   return (
-    <div>
-      <UserInput onAddUser={userInputHandler} />
+    <React.Fragment>
+      <UserInput onAddUser={userInputHandler} /> 
       <UserInputList users={userInputList} />
-    </div>
+    </React.Fragment>
   );
 }
 
